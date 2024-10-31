@@ -17,10 +17,10 @@ void	*ft_calloc(size_t count, size_t size)
 	unsigned char	*ptr;
 	unsigned int	i;
 
-	i = 0;
+	i = -1;
+	ptr = malloc(count * size);
 	if (!ptr)
 		return (NULL);
-	ptr = malloc(count * size);
 	while (++i < count * size)
 	{
 		ptr[i] = 0;

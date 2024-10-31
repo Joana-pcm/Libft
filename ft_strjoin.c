@@ -23,11 +23,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	joint = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char ));
 	if (!joint)
 		return (NULL);
-	while (s1[++i] != '\0')
+	while (s1[++i])
 		joint[i] = s1[i];
-	while (s2[++j] != '\0')
+	while (s2[++j])
 		joint[i++] = s2[j];
-	joint[i + 1] = '\0';
+	joint[i] = '\0';
 	return (joint);
 }
 /*

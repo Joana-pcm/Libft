@@ -21,10 +21,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	d = dest;
 	s = (unsigned char *) src;
-	while (s[i] != '\0' && n > 0)
+	if (dest == (void *)0 && src == (void *)0)
+		return (dest);
+	while (n > 0)
 	{
-		if (&d[i] == &s[i])
-			return (0);
 		d[i] = s[i];
 		i++;
 		n--;

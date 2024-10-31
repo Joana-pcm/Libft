@@ -27,7 +27,7 @@ int	count(char *s, char c)
 		if (s[i] == c && s[i + 1] != c)
 			count++;
 	}
-	return (count - 1);
+	return (count);
 }
 /*
 void	bfree(char	*s)
@@ -63,6 +63,7 @@ char	**ft_split(char const *s, char c)
 	ss[++j] = 0;
 	return (ss);
 }
+/*
 int	main()
 {
 	char	s [] = "hello world";
@@ -76,4 +77,4 @@ int	main()
 		printf("%s\n", s2[i]);
 		i++;
 	}
-}
+}*/

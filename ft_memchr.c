@@ -21,11 +21,10 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = -1;
 	a = (unsigned char) c;
 	p = (unsigned char *) s;
-	while (n > 0)
+	while (n-- > 0)
 	{
-		if (p[++i] == c)
+		if (p[++i] == a)
 			return ((void *)&s[i]);
-		n--;
 	}
 	return (0);
 }

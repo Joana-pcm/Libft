@@ -23,10 +23,10 @@ char	*ft_strrchr(const char *s, int c)
 	p = (char *) s;
 	while (p[++i] != '\0')
 	{
-		if (p[i] == c)
+		if (p[i] == (unsigned char) c)
 			gotcha = &p[i];
 	}
-	if (c == '\0')
+	if (p[i] == (unsigned char) c)
 		gotcha = &p[i];
 	return (gotcha);
 }

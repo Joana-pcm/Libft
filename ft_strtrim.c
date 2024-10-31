@@ -34,10 +34,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 				j--;
 		}
 	}
-	trum = malloc (((j + 1) - i) + 1);
+	trum = ft_substr((char *)s1, i, ((j + 1) - i));
 	if (!trum)
 		return (NULL);
-	trum = ft_substr((char *)s1, i, ((j + 1) - i));
 	return (trum);
 }
 /*
