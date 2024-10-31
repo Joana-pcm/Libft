@@ -28,17 +28,19 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 		dest[i] = '\0';
 	}
 	else if (size != 0)
+	{
 		while (src[++i] != '\0' && i < size - 1)
 			dest[i] = src[i];
-	dest[size - 1] = '\0';
+		dest[size - 1] = '\0';
+	}
 	return (count);
 }
 /*
 int	main()
 {
-	char	src [] = "hello world";
-	char	dest [20];
-	printf("count: %d\n", ft_strlcpy(dest, src, 30));
+	char	src [] = "aasdjj;s;sa";
+	char	dest [100];
+	printf("count: %zu\n", ft_strlcpy(dest, src, 100));
 	printf("source: %s\n", src);
 	printf("dest: %s\n", dest);
 	return 0;

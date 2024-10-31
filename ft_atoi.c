@@ -21,7 +21,7 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	res = 0;
 	sign = 1;
-	if (nptr[i] == '\0')
+	if (*nptr == '\010')
 		return (0);
 	while ((nptr[i] >= '\b' && nptr[i] <= '\r') || nptr[i] == ' ')
 		i++;
@@ -40,9 +40,9 @@ int	ft_atoi(const char *nptr)
 	return (res);
 }
 /*
-int	main(int argc, char **argv)
+int	main()
 {
-	if (argc > 1)
-		printf("%d", ft_atoi(&argv[1][0]));
+
+		printf("%d", ft_atoi("\0 9"));
 	return 0;
 }*/

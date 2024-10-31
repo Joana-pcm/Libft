@@ -36,6 +36,8 @@ char	*ft_itoa(int n)
 	if (n <= 0)
 		count++;
 	s = malloc((++count) * sizeof(char));
+	if (!s)
+		return (0);
 	s[--count] = '\0';
 	s[--count] = (((n % 10) < 0) * -(n % 10) \
 		+ ((n % 10) >= 0) * (n % 10)) + '0';

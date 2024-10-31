@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -18,33 +19,33 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		j;
 	int		n;
 	int		k;
-	char	*trum;
 
 	i = 0;
 	k = -1;
 	j = ft_strlen(s1) - 1;
-	while (j > i && s1[++k] != '\0')
+	while (j >= i && s1[++k])
 	{
 		n = -1;
-		while (set[++n] != '\0')
+		while (j >= i && set[++n] != '\0')
 		{
-			if (s1[i] == set[n])
+			if (j > i && s1[i] == set[n])
 				i++;
-			if (s1[j] == set[n])
+			if (j > i && s1[j] == set[n])
 				j--;
+			if (j == i && s1[i] == set[n])
+				return (ft_calloc(1, 1));
 		}
 	}
-	trum = ft_substr((char *)s1, i, ((j + 1) - i));
-	if (!trum)
-		return (NULL);
-	return (trum);
+	return (ft_substr((char *)s1, i, ((j + 1) - i)));
 }
 /*
 int		main()
 {
-	char	*str = "abbaababaaaaa";
-	char	*set = "ab";
+	char	*str = "   xxx   xxx";
+	char	*set = " x";
+	char	*r = "";
 	char	*s = ft_strtrim(str, set);
 
 	printf("%s\n", s);
+	printf("%s\n", r);
 }*/
