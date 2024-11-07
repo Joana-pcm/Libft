@@ -10,6 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
+CC = cc
+
+CCFLAGS = -Werror -Wall -Wextra
+
 SRC = ft_isprint.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isascii.c \
 	  ft_isdigit.c ft_tolower.c ft_toupper.c ft_atoi.c ft_bzero.c \
 	  ft_calloc.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c \
@@ -33,7 +37,10 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
-	
+
+%.o: %.c
+	$(CC) $(CCFLAGS) -o $@ -c $<
+
 clean: 
 	rm -f $(OBJS) $(BONUS_OBJS)
 

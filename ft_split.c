@@ -29,12 +29,20 @@ static	int	count(char *s, char c)
 	}
 	return (count);
 }
-/*
-void	bfree(char	*s)
+
+static	void	*bfree(char	**ss)
 {
-	free(s);
+	int	i;
+
+	i = 0;
+	while (ss[i])
+	{
+		free(ss[i]);
+		i++;
+	}
+	free(ss);
 	return (NULL);
-}*/
+}
 
 char	**ft_split(char const *s, char c)
 {
@@ -43,22 +51,23 @@ char	**ft_split(char const *s, char c)
 	int		j;
 	int		n;
 
-	i = 0;
+	i = -1;
 	j = -1;
 	n = -1;
 	ss = malloc(sizeof(char *) * (count((char *)s, c) + 1));
 	if (!ss || !s)
 		return (NULL);
-	while (i <= ft_strlen(s))
+	while (++i <= ft_strlen(s))
 	{
 		if (s[i] != c && n < 0)
 			n = i;
 		else if ((s[i] == c || i == ft_strlen(s)) && n >= 0)
 		{
 			ss[++j] = ft_substr(s, n, (i - n));
+			if (!ss[j])
+				return (bfree(ss));
 			n = -1;
 		}
-		i++;
 	}
 	ss[++j] = 0;
 	return (ss);
